@@ -1,0 +1,29 @@
+{
+  "name": "practicaweb",
+  "version": "1.0.0",
+  "description": "Implementacion practica de guardado urls",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Carlangasv/practicaWeb.git"
+  },
+  "keywords": [
+    "url",
+    "guardado",
+    "api",
+    "node"
+  ],
+  "author": "Carlangasv",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Carlangasv/practicaWeb/issues"
+  },
+  "homepage": "https://github.com/Carlangasv/practicaWeb#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.0.0"
+  }
+}
