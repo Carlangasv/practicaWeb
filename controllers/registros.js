@@ -39,9 +39,9 @@ let guardarRegistro = async (registro) => {
  * Se consultan todos los registros de la base de datos para mostrarlos
  */
 
-let consultarRegistro = async () => {
+let consultarRegistro = async (registro) => {
   let _servicio = new ServicioPg();
-  let sql = `SELECT * FROM public.registros`;
+  let sql = `SELECT (url,descripcion,nombre) FROM public.registros where nombre like '%${registro.nombre}%'`;
   let respuesta = await _servicio.ejecutarSql(sql);
   return respuesta;
 };
