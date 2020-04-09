@@ -41,7 +41,7 @@ let guardarRegistro = async (registro) => {
 
 let consultarRegistro = async (registro) => {
   let _servicio = new ServicioPg();
-  let sql = `SELECT (url,descripcion,nombre) FROM public.registros where nombre like '%${registro.nombre}%'`;
+  let sql = `SELECT (url,descripcion,nombre) FROM public.registros`;
   let respuesta = await _servicio.ejecutarSql(sql);
   return respuesta;
 };

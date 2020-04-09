@@ -14,7 +14,7 @@ const _controlador = require("../controllers/registros");
  * de mostrar el resultado del select en la base de datos
  */
 
-router.get("/registros",async (req, res) => {
+router.get("/registros", async (req, res) => {
   let info_reg = await req.body;
   _controlador
     .consultarRegistro(info_reg)

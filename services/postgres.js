@@ -4,10 +4,10 @@ const { Pool } = require("pg");
 class ServicioPG {
   constructor() {
     this.pool = new Pool({
-      user: "carlos",
+      user: "postgres",
       host: "localhost",
       database: "Url",
-      password: "123",
+      password: "postgres",
       port: 5432
     });
 }
