@@ -3,6 +3,8 @@ const express = require("express");
 
 //Se inicializa la libreria
 const app = express();
+var cors = require('cors')
+app.use(cors())
 app.use(express.json());
 
 //Se crea el endpoint (Este delimita hasta donde va el api)
