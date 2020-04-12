@@ -32,7 +32,9 @@
             <label for="txtDescripcion">Descripción</label>
             <input type="text" class="form-control" id="txtDescripcion" />
           </div>
-          <button type="submit" class="btn btn-primary">Guardar url</button>
+          <button type="submit" class="btn btn-primary" onclick="insertar()">
+            Guardar url
+          </button>
           <button
             type="button"
             class="btn btn-primary"
@@ -64,25 +66,49 @@
 
   <script>
     let consultar = () => {
-      params1 = {
-        nombre : "ig"
-      }
-      axios.get("http://localhost:3000/registros",params1).then((response) => {
+      params = {
+        nombre: "ig",
+      };
+      axios.get("http://localhost:3000/registros", params).then((response) => {
         console.log("Respuesta del api");
         console.log(response);
       });
     };
-    let insertar = () => {
-      params = {
-        nombre : 'ig2',
-        url : 'instagram.com',
-        descripcion : 'xd'
-      }
-      axios.post("http://localhost:3000/registros",params).then((response) =>{
-      console.log("Intento de insert")
-      console.log(response)
-    })}
-    consultar()
     
+    let insertar = () => {
+      let nombreF = document.getElementById("txtNombre").value;
+      let urlF = document.getElementById("txtUrl").value;
+      let descF = document.getElementById("txtDescripcion").value;
+      if (validar(nombreF, urlF)) {
+        params = {
+          nombre: nombreF,
+          url: urlF,
+          descripcion: descF,
+        };
+        axios
+          .post("http://localhost:3000/registros", params)
+          .then((response) => {
+            console.log("Intento de insert");
+            console.log(response);
+          });
+          alert("Url registrada")
+
+        nombreF = document.getElementById("txtNombre").value = "";
+        urlF = document.getElementById("txtUrl").value = "";
+        descF = document.getElementById("txtDescripcion").value = "";
+      }else{
+        alert("El nombre y la url son obligatorias")
+      }
+    };
+
+    let validar = (nom,ur)=>{
+      if(nom == ""){
+        return false
+      } else if(ur == ""){
+        return false
+      }else{
+        return true
+      }
+    }
   </script>
-</html>   
+</html>
