@@ -45,8 +45,15 @@ let consultarRegistro = async () => {
   let respuesta = await _servicio.ejecutarSql(sql);
   return respuesta;
 };
+
+let eliminar = async(toDelete) =>{
+  let _servicio = new ServicioPg();
+  let sql = `DELETE FROM public.registros WHERE id = ${toDelete.id}`
+  let respuesta = await _servicio.ejecutarSql(sql);
+  return respuesta;
+}
 /**
  * Se exportan los metodos para poder usarse desde otros archivos,
  * se exportan usando destructuración para hacerlo mas facil
  */
-module.exports = { validarRegistro, guardarRegistro,consultarRegistro };
+module.exports = { validarRegistro, guardarRegistro,consultarRegistro,eliminar};

@@ -14,7 +14,7 @@ const _controlador = require("../controllers/registros");
  * de mostrar el resultado del select en la base de datos
  */
 
-router.get("/registros",(req, res) => {
+router.get("/registros", (req, res) => {
   _controlador
     .consultarRegistro()
     .then((respuestaDB) => {
@@ -41,6 +41,7 @@ router.post("/registros", async (req, res) => {
     _controlador
       .guardarRegistro(info_reg)
       .then((respuestaDB) => {
+
         res.send({ ok: true, mensaje: "Registro guardado", info: info_reg });
       })
       .catch((error) => {
@@ -49,6 +50,19 @@ router.post("/registros", async (req, res) => {
   } catch (error) {
     res.send(error);
   }
+});
+
+router.delete("/registros", async (req, res) => {
+  let info_reg = await req.body;
+  _controlador
+    .eliminar(info_reg)
+    .then((respuestaDB) => {
+      let registros = respuestaDB;
+      res.send({ ok: true, info: registros, mensaje: "registro eliminado" });
+    })
+    .catch((error) => {
+      res.send(error);
+    });
 });
 // Se exporta el router para poder usarlo desde otros archivos
 module.exports = router;
