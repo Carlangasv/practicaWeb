@@ -12,7 +12,7 @@
     <title>Registros guardados</title>
   </head>
   <body>
-    <table class="table" id = "tb">
+    <table class="table" id="tb">
       <thead>
         <tr>
           <th scope="col">Url</th>
@@ -20,7 +20,7 @@
           <th scope="col">Descripcion</th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody id="listaRegistros"></tbody>
     </table>
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -43,15 +43,27 @@
   <script>
     var data = [];
     let consultar = () => {
-      axios.get("http://localhost:3000/registros")
-      .then((response) => {
+      axios.get("http://localhost:3000/registros").then((response) => {
         console.log("Respuesta del api");
         console.log(response);
-        data = response.data.info;
-        console.log(data)
+        registros = response.data.info;
+        console.log(registros)
+        let lista = document.getElementById("listaRegistros");
+        let data = "";
+        for (let i = 0; i < registros.length; i++) {
+          let miReg = ""
+          miReg = registros[i].row.toString();
+          regi = []
+          regi = miReg.split(",")
+          data += "<tr>";
+          data += `<td>${regi[0].replace("(","")}</td>`;
+          data += `<td>${regi[1]}</td>`;
+          data += `<td>${regi[2].replace(")","")} </td>`; 
+          data += "</tr>";
+        }
+        lista.innerHTML = data;
       });
     };
     consultar();
-    
   </script>
 </html>

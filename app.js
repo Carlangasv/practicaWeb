@@ -15,7 +15,7 @@ const rutas_registros = require("./routes/registros");
 
 app.use(rutas_registros);
 
-
+  
 // Puerto
 const port = 3000;
 // Levantar el servidor para escuchar los puertos
