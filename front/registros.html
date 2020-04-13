@@ -15,6 +15,7 @@
     <table class="table" id="tb">
       <thead>
         <tr>
+          <th scope="col">Id</th>
           <th scope="col">Url</th>
           <th scope="col">Nombre</th>
           <th scope="col">Descripcion</th>
@@ -58,7 +59,8 @@
           data += "<tr>";
           data += `<td>${regi[0].replace("(","")}</td>`;
           data += `<td>${regi[1]}</td>`;
-          data += `<td>${regi[2].replace(")","")} </td>`; 
+          data += `<td>${regi[2]} </td>`;  
+          data += `<td>${regi[3].replace(")","")} </td>`; 
           data += "</tr>";
         }
         lista.innerHTML = data;
