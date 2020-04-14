@@ -14,11 +14,11 @@ const _controlador = require("../controllers/registros");
  * de mostrar el resultado del select en la base de datos
  */
 
-router.get("/registros", (req, res) => {
+router.get("/registros",  (req, res) => {
   _controlador
     .consultarRegistro()
-    .then((respuestaDB) => {
-      let registros = respuestaDB.rows;
+    .then(async (respuestaDB) => {
+      let registros = await respuestaDB.rows;
       res.send({ ok: true, info: registros, mensaje: "registros consultados" });
     })
     .catch((error) => {

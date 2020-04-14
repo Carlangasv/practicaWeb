@@ -41,7 +41,7 @@ let guardarRegistro = async (registro) => {
 
 let consultarRegistro = async () => {
   let _servicio = new ServicioPg();
-  let sql = `SELECT (id,url,descripcion,nombre) FROM public.registros`;
+  let sql = `SELECT id,url,descripcion,nombre FROM public.registros`;
   let respuesta = await _servicio.ejecutarSql(sql);
   return respuesta;
 };
