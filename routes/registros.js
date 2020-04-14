@@ -26,7 +26,8 @@ router.get("/registros", (req, res) => {
     });
 });
 
-/**
+
+/** 
  * Guardamos el registro
  */
 router.post("/registros", async (req, res) => {

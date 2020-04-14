@@ -7,8 +7,6 @@ var cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
-const router = express.Router();
-
 
 // IMPORTAR las rutas con los endpoints especificos
 const rutas_registros = require("./routes/registros");
